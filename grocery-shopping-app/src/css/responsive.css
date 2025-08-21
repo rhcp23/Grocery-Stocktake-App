@@ -1,0 +1,231 @@
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .checkbox {
+        width: 24px;
+        height: 24px;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .master-list, .shopping-list {
+        margin-bottom: 20px;
+    }
+
+    .list-header {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .category {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+    .quantity {
+        width: 50px;
+        text-align: center;
+    }
+}
+
+/* Responsive Design for Mobile-First Grocery Shopping App */
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+    header {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    header h1 {
+        font-size: 1.25rem;
+    }
+    
+    .tab-btn {
+        padding: var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+    
+    main {
+        padding: var(--spacing-sm);
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-row input, .form-row select, .form-row button {
+        width: 100%;
+    }
+    
+    .master-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    
+    .master-item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .list-controls {
+        flex-direction: column;
+    }
+    
+    .list-controls button {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* Medium phones (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    main {
+        max-width: 720px;
+        padding: var(--spacing-lg);
+    }
+    
+    .form-row {
+        flex-wrap: nowrap;
+    }
+    
+    .list-controls {
+        flex-direction: row;
+    }
+}
+
+/* Tablets (769px - 1024px) */
+@media (min-width: 769px) {
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: var(--spacing-xl);
+    }
+    
+    .section-header {
+        flex-wrap: nowrap;
+    }
+    
+    .tab-navigation {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    header {
+        padding: var(--spacing-xl);
+    }
+    
+    .master-item {
+        padding: var(--spacing-lg);
+    }
+    
+    .shopping-item {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Desktop and larger (1025px+) */
+@media (min-width: 1025px) {
+    main {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .tab-navigation {
+        max-width: 1000px;
+    }
+    
+    /* Side-by-side layout for larger screens */
+    .desktop-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .tab-content {
+        display: block !important;
+    }
+    
+    .tab-navigation {
+        display: none;
+    }
+}
+
+/* Touch-friendly adjustments */
+@media (pointer: coarse) {
+    .btn-primary, .btn-secondary, .btn-danger {
+        min-height: 48px;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    input[type="text"], input[type="number"], select {
+        min-height: 48px;
+        padding: var(--spacing-md);
+    }
+    
+    .item-checkbox {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .theme-toggle button {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-secondary: #000000;
+    }
+    
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-secondary: #ffffff;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .button {
+        background-color: #1e1e1e;
+        color: #ffffff;
+    }
+
+    .item {
+        border-bottom: 1px solid #333333;
+    }
+}

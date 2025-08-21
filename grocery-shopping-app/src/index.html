@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Shopping App</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="manifest" href="../manifest.json">
+</head>
+<body>
+    <header>
+        <h1>🛒 Grocery Shopping</h1>
+        <div class="theme-toggle">
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </header>
+    
+    <nav class="tab-navigation">
+        <button class="tab-btn active" data-tab="master">Master List</button>
+        <button class="tab-btn" data-tab="shopping">Shopping List</button>
+    </nav>
+
+    <main>
+        <!-- Master List Section -->
+        <section id="master-section" class="tab-content active">
+            <div class="section-header">
+                <h2>Master Inventory</h2>
+                <button id="toggle-add-form" class="btn-primary">+ Add Item</button>
+            </div>
+            
+            <form id="add-item-form" class="add-form hidden">
+                <div class="form-row">
+                    <input type="text" id="item-name" placeholder="Item name" required>
+                    <select id="item-category">
+                        <option value="Produce">🥬 Produce</option>
+                        <option value="Dairy">🥛 Dairy</option>
+                        <option value="Meat">🥩 Meat</option>
+                        <option value="Pantry">🥫 Pantry</option>
+                        <option value="Frozen">🧊 Frozen</option>
+                        <option value="Bakery">🍞 Bakery</option>
+                        <option value="Other">📦 Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <input type="number" id="item-quantity" placeholder="Quantity" min="1" value="1">
+                    <button type="submit" class="btn-primary">Add to Master List</button>
+                </div>
+            </form>
+
+            <div class="search-container">
+                <input type="text" id="search-master" placeholder="🔍 Search master list...">
+                <div class="sort-controls">
+                    <label for="master-sort">Sort by:</label>
+                    <select id="master-sort">
+                        <option value="name-asc">Name A-Z</option>
+                        <option value="name-desc">Name Z-A</option>
+                        <option value="quantity-asc">Quantity ↑</option>
+                        <option value="quantity-desc">Quantity ↓</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="master-list" class="item-list"></div>
+        </section>
+
+        <!-- Shopping List Section -->
+        <section id="shopping-section" class="tab-content">
+            <div class="section-header">
+                <h2>Shopping List</h2>
+                <span class="item-count" id="shopping-count">0 items</span>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-shopping" placeholder="🔍 Search shopping list...">
+                <div class="sort-controls">
+                    <label for="shopping-sort">Sort by:</label>
+                    <select id="shopping-sort">
+                        <option value="name-asc">Name A-Z</option>
+                        <option value="name-desc">Name Z-A</option>
+                        <option value="category-asc">Category A-Z</option>
+                        <option value="category-desc">Category Z-A</option>
+                        <option value="completed-asc">Incomplete First</option>
+                        <option value="completed-desc">Completed First</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Filter Bar -->
+            <div class="category-filter-bar" id="category-filter-bar">
+                <button class="category-filter-btn active" data-category="all">
+                    🛒 All
+                </button>
+                <button class="category-filter-btn" data-category="Produce">
+                    🥬 Produce
+                </button>
+                <button class="category-filter-btn" data-category="Dairy">
+                    🥛 Dairy
+                </button>
+                <button class="category-filter-btn" data-category="Meat">
+                    🥩 Meat
+                </button>
+                <button class="category-filter-btn" data-category="Pantry">
+                    🥫 Pantry
+                </button>
+                <button class="category-filter-btn" data-category="Frozen">
+                    🧊 Frozen
+                </button>
+                <button class="category-filter-btn" data-category="Bakery">
+                    🍞 Bakery
+                </button>
+                <button class="category-filter-btn" data-category="Other">
+                    📦 Other
+                </button>
+            </div>
+
+            <div id="shopping-list" class="item-list shopping-items"></div>
+            
+            <div class="list-controls">
+                <button id="clear-completed" class="btn-secondary">✅ Clear Completed</button>
+                <button id="clear-all" class="btn-danger">🗑️ Clear All</button>
+                <button id="share-list" class="btn-primary">📤 Share List</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/share.js"></script>
+</body>
+</html>
