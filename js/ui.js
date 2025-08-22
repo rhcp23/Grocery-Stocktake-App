@@ -52,11 +52,11 @@ const UI = {
 
     // Hide category filter bar if shopping list is empty
     updateCategoryFilterBarVisibility(items) {
-        const filterBar = document.getElementById('category-filter-bar');
+        const filterSection = document.getElementById('category-filter-section');
         if (items.length === 0) {
-            filterBar.style.display = 'none';
+            filterSection.style.display = 'none';
         } else {
-            filterBar.style.display = 'flex';
+            filterSection.style.display = 'block';
         }
     },
 
@@ -67,6 +67,7 @@ const UI = {
         if (items.length === 0) {
             masterListEl.innerHTML = `
                 <div class="empty-state">
+                    <div class="empty-state-icon">📦</div>
                     <h3>No items in master list</h3>
                     <p>Add items to your master inventory to get started!</p>
                 </div>
@@ -95,13 +96,18 @@ const UI = {
             sortedCategoryItems.forEach(item => {
                 html += `
                     <div class="master-item">
-                        <div class="master-item-info">
-                            <div class="master-item-name">${item.name}</div>
-                            <div class="master-item-details">Quantity: ${item.quantity} | Category: ${item.category}</div>
-                        </div>
-                        <div class="master-item-actions">
-                            <button class="btn-primary add-to-shopping" data-id="${item.id}">+ Add</button>
-                            <button class="btn-danger delete-item" data-id="${item.id}">🗑️</button>
+                        <div class="master-item-content">
+                            <div class="master-item-info">
+                                <div class="master-item-name">${item.name}</div>
+                                <div class="master-item-details">
+                                    <span>Qty: ${item.quantity}</span>
+                                    <span>Category: ${item.category}</span>
+                                </div>
+                            </div>
+                            <div class="master-item-actions">
+                                <button class="btn btn-primary btn-sm add-to-shopping" data-id="${item.id}">+ Add</button>
+                                <button class="btn btn-danger btn-sm delete-item" data-id="${item.id}">🗑️</button>
+                            </div>
                         </div>
                     </div>
                 `;
@@ -127,6 +133,7 @@ const UI = {
         if (items.length === 0) {
             shoppingListEl.innerHTML = `
                 <div class="empty-state">
+                    <div class="empty-state-icon">🛒</div>
                     <h3>Shopping list is empty</h3>
                     <p>Add items from your master list to start shopping!</p>
                 </div>
@@ -159,6 +166,7 @@ const UI = {
         if (sortedItems.length === 0 && this.currentCategoryFilter !== 'all') {
             html = `
                 <div class="empty-state">
+                    <div class="empty-state-icon">🔍</div>
                     <h3>No items in this category</h3>
                     <p>Try selecting a different category or add more items to your shopping list.</p>
                 </div>

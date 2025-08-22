@@ -229,3 +229,331 @@
         border-bottom: 1px solid #333333;
     }
 }
+
+/* Mobile-First Responsive Design */
+
+/* Extra Small Devices (phones, 320px and up) */
+@media (max-width: 374px) {
+    .header-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .btn {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--font-size-xs);
+    }
+    
+    .form-section {
+        padding: var(--space-3);
+    }
+    
+    .controls-section {
+        padding: var(--space-3);
+    }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    main {
+        padding: var(--space-6) var(--space-5);
+    }
+    
+    .form-row {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    
+    .form-group:last-child {
+        flex-shrink: 0;
+    }
+    
+    .control-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .control-buttons .btn {
+        flex: 0 1 auto;
+        min-width: 140px;
+    }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    main {
+        padding: var(--space-8) var(--space-6);
+    }
+    
+    .section-header {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .master-item-content {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .master-item-actions {
+        flex-direction: row;
+    }
+    
+    .search-container {
+        flex-direction: row;
+        gap: var(--space-4);
+    }
+    
+    .search-input {
+        flex: 1;
+    }
+    
+    .sort-controls {
+        flex-shrink: 0;
+        min-width: 200px;
+    }
+    
+    .category-filters {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    main {
+        max-width: 900px;
+        padding: var(--space-10) var(--space-8);
+    }
+    
+    .form-section {
+        padding: var(--space-8);
+    }
+    
+    .controls-section {
+        padding: var(--space-6);
+    }
+    
+    .category-filters {
+        gap: var(--space-3);
+    }
+    
+    .category-filter-btn {
+        padding: var(--space-3) var(--space-5);
+    }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    main {
+        max-width: 1000px;
+    }
+}
+
+/* High-DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .theme-toggle-btn,
+    .btn,
+    .form-input,
+    .form-select {
+        border-width: 0.5px;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    header {
+        padding: var(--space-2) var(--space-4);
+    }
+    
+    .tab-btn {
+        padding: var(--space-2) var(--space-4);
+    }
+    
+    main {
+        padding: var(--space-4) var(--space-4);
+    }
+    
+    .section-header {
+        margin-bottom: var(--space-4);
+    }
+    
+    .form-section {
+        padding: var(--space-4);
+        margin-bottom: var(--space-4);
+    }
+    
+    .controls-section {
+        padding: var(--space-4);
+        margin-bottom: var(--space-4);
+    }
+}
+
+/* Touch Device Improvements */
+@media (pointer: coarse) {
+    .btn,
+    .tab-btn,
+    .category-filter-btn,
+    .form-input,
+    .form-select {
+        min-height: 48px;
+    }
+    
+    .item-checkbox {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .item-label {
+        padding: var(--space-2) 0;
+    }
+    
+    .master-item,
+    .shopping-item {
+        padding: var(--space-5);
+    }
+}
+
+/* Hover Device Improvements */
+@media (hover: hover) {
+    .master-item:hover,
+    .shopping-item:hover {
+        transform: translateY(-2px);
+    }
+    
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+    
+    .category-filter-btn:hover {
+        transform: translateY(-1px);
+    }
+}
+
+/* Print Styles */
+@media print {
+    header,
+    .tab-navigation,
+    .form-section,
+    .controls-section,
+    .list-controls {
+        display: none !important;
+    }
+    
+    main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .master-item,
+    .shopping-item {
+        break-inside: avoid;
+        border: 1px solid #000;
+        margin-bottom: 8px;
+        padding: 8px;
+    }
+    
+    .category-header {
+        break-after: avoid;
+        background: #f0f0f0 !important;
+        color: #000 !important;
+    }
+    
+    .item-checkbox {
+        -webkit-appearance: checkbox;
+        appearance: checkbox;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg-primary: var(--gray-900);
+        --bg-secondary: var(--gray-800);
+        --bg-tertiary: var(--gray-700);
+        --surface: var(--gray-800);
+        --surface-elevated: var(--gray-700);
+        
+        --text-primary: var(--gray-100);
+        --text-secondary: var(--gray-300);
+        --text-tertiary: var(--gray-400);
+        
+        --border-light: var(--gray-700);
+        --border-medium: var(--gray-600);
+    }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    .form-input,
+    .form-select,
+    .search-input,
+    .sort-select {
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: var(--radius-md);
+    }
+    
+    .form-select,
+    .sort-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+}
+
+/* Safe Area Insets for Devices with Notches */
+@supports (padding: max(0px)) {
+    header {
+        padding-left: max(var(--space-4), env(safe-area-inset-left));
+        padding-right: max(var(--space-4), env(safe-area-inset-right));
+        padding-top: max(var(--space-4), env(safe-area-inset-top));
+    }
+    
+    main {
+        padding-left: max(var(--space-4), env(safe-area-inset-left));
+        padding-right: max(var(--space-4), env(safe-area-inset-right));
+        padding-bottom: max(var(--space-6), env(safe-area-inset-bottom));
+    }
+}
+
+/* Performance Optimizations */
+.master-item,
+.shopping-item,
+.btn,
+.category-filter-btn {
+    will-change: transform;
+}
+
+/* Focus Management for Better Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-600);
+    color: var(--text-inverse);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
